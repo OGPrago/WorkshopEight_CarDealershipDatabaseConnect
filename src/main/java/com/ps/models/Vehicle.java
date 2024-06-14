@@ -5,20 +5,22 @@ public class Vehicle {
     private int year;
     private String make;
     private String model;
-    private String vehicleType;
     private String color;
-    private int odometer;
+    private int mileage;
+    private String type;
     private double price;
+    private String sold;
 
-    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
+    public Vehicle(int vin, int year, String make, String model, String color, int mileage, String type, double price, String sold) {
         this.vin = vin;
         this.year = year;
         this.make = make;
         this.model = model;
-        this.vehicleType = vehicleType;
         this.color = color;
-        this.odometer = odometer;
+        this.mileage = mileage;
+        this.type = type;
         this.price = price;
+        this.sold = sold;
     }
 
     public int getVin() {
@@ -53,14 +55,6 @@ public class Vehicle {
         this.model = model;
     }
 
-    public String getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-
     public String getColor() {
         return color;
     }
@@ -69,12 +63,20 @@ public class Vehicle {
         this.color = color;
     }
 
-    public int getOdometer() {
-        return odometer;
+    public int getMileage() {
+        return mileage;
     }
 
-    public void setOdometer(int odometer) {
-        this.odometer = odometer;
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public double getPrice() {
@@ -85,6 +87,14 @@ public class Vehicle {
         this.price = price;
     }
 
+    public String getSold() {
+        return sold;
+    }
+
+    public void setSold(String sold) {
+        this.sold = sold;
+    }
+
     @Override
     public String toString() {
         return "Vehicle{" +
@@ -92,10 +102,11 @@ public class Vehicle {
                 ", year=" + year +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
-                ", vehicleType='" + vehicleType + '\'' +
                 ", color='" + color + '\'' +
-                ", odometer=" + odometer +
-                ", price=" + price +
+                ", mileage=" + mileage +
+                ", type='" + type + '\'' +
+                ", price=" + price + '\'' +
+                ", sold=" + sold + '\'' +
                 '}';
     }
 }

@@ -6,6 +6,7 @@ import com.ps.DAO.SalesContractDAO;
 import com.ps.DAO.VehicleDAO;
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -30,5 +31,41 @@ public class UserInterface {
 
     public static void display(String[] args) {
         init(args);
+        mainMenu();
+    }
+
+    private static void mainMenu() {
+        byte command = 0;
+
+        do {
+            System.out.println("Welcome! Please select an option.");
+            System.out.println("\t1) Vehicle search");
+            System.out.println("\t2) Add/Remove Vehicle");
+
+            System.out.println("\t99) Exit");
+
+            try {
+                command = scanner.nextByte();
+            } catch (InputMismatchException e) {
+                System.out.println("Misinput? ¬‿¬");
+                scanner.next();
+                continue;
+            }
+
+
+            switch (command) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 99:
+                    System.out.println("Bye Bye.");
+                    break;
+                default:
+                    System.out.println("Misinput? ¬‿¬");
+                    break;
+            }
+
+        } while (command != 99);
     }
 }

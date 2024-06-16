@@ -78,33 +78,36 @@ public class VehicleDAO implements VehicleInt {
                     vehiclesYear.add(vehicle);
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-        }
-
-        @Override
-        public List<Vehicle> getVehiclesByMakeModel (String make, String model){
-            return List.of();
-        }
-
-        @Override
-        public List<Vehicle> getVehiclesByYear ( int min, int max){
-            return List.of();
-        }
-
-        @Override
-        public List<Vehicle> getVehiclesByColor (String color){
-            return List.of();
-        }
-
-        @Override
-        public List<Vehicle> getVehiclesByMileage ( int min, int max){
-            return List.of();
-        }
-
-        @Override
-        public List<Vehicle> getVehiclesByType (String type){
-            return List.of();
-        }
+        } catch (SQLException e) {
+            e.printStackTrace();
     }
+        return vehiclesYear;
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        return List.of();
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesByYear(int min, int max) {
+        return List.of();
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesByColor(String color) {
+        return List.of();
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesByMileage(int min, int max) {
+        return List.of();
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesByType(String type) {
+        return List.of();
+    }
+}
+

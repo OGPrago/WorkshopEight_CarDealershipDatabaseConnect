@@ -100,6 +100,7 @@ public class UserInterface {
                     processGetAllVehicles();
                     break;
                 case 2:
+                    processGetVehiclesByPrice();
                     break;
                 case 3:
                     break;
@@ -124,6 +125,28 @@ public class UserInterface {
         List<Vehicle> vehicles = vehicleDAO.getAllVehicles();
         System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
         for (Vehicle vehicle : vehicles) {
+            System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
+                    vehicle.getVin(),
+                    vehicle.getYear(),
+                    vehicle.getMake(),
+                    vehicle.getModel(),
+                    vehicle.getColor(),
+                    vehicle.getMileage(),
+                    vehicle.getType(),
+                    vehicle.getPrice(),
+                    vehicle.getSold()
+            );
+        }
+    }
+
+    private static void processGetVehiclesByPrice() {
+        System.out.print("Enter min price:");
+        double min = scanner.nextDouble();
+        System.out.print("Enter max price:");
+        double max = scanner.nextDouble();
+        List<Vehicle> vehiclesByPrice = vehicleDAO.getVehiclesByPrice(min, max);
+        System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
+        for (Vehicle vehicle : vehiclesByPrice) {
             System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
                     vehicle.getVin(),
                     vehicle.getYear(),

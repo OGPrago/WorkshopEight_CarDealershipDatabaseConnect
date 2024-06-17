@@ -103,14 +103,19 @@ public class UserInterface {
                     processGetVehiclesByPrice();
                     break;
                 case 3:
+                    processGetVehiclesByMakeModel();
                     break;
                 case 4:
+                    processGetVehiclesByYear();
                     break;
                 case 5:
+                    processGetVehiclesByColor();
                     break;
                 case 6:
+                    processGetVehiclesByMileage();
                     break;
                 case 7:
+                    processGetVehiclesByType();
                     break;
                 case 99:
                     break;
@@ -147,6 +152,115 @@ public class UserInterface {
         List<Vehicle> vehiclesByPrice = vehicleDAO.getVehiclesByPrice(min, max);
         System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
         for (Vehicle vehicle : vehiclesByPrice) {
+            System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
+                    vehicle.getVin(),
+                    vehicle.getYear(),
+                    vehicle.getMake(),
+                    vehicle.getModel(),
+                    vehicle.getColor(),
+                    vehicle.getMileage(),
+                    vehicle.getType(),
+                    vehicle.getPrice(),
+                    vehicle.getSold()
+            );
+        }
+    }
+
+    private static void processGetVehiclesByMakeModel() {
+        scanner.nextLine();
+        System.out.print("Enter make:");
+        String make = scanner.nextLine();
+        System.out.print("Enter model:");
+        String model = scanner.nextLine();
+        List<Vehicle> vehiclesByMakeModel = vehicleDAO.getVehiclesByMakeModel(make, model);
+        System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
+        for (Vehicle vehicle : vehiclesByMakeModel) {
+            System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
+                    vehicle.getVin(),
+                    vehicle.getYear(),
+                    vehicle.getMake(),
+                    vehicle.getModel(),
+                    vehicle.getColor(),
+                    vehicle.getMileage(),
+                    vehicle.getType(),
+                    vehicle.getPrice(),
+                    vehicle.getSold()
+            );
+        }
+    }
+
+    private static void processGetVehiclesByYear() {
+        System.out.print("Enter min year:");
+        int min = scanner.nextInt();
+        System.out.print("Enter max year:");
+        int max = scanner.nextInt();
+        List<Vehicle> vehiclesByYear = vehicleDAO.getVehiclesByYear(min, max);
+        System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
+        for (Vehicle vehicle : vehiclesByYear) {
+            System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
+                    vehicle.getVin(),
+                    vehicle.getYear(),
+                    vehicle.getMake(),
+                    vehicle.getModel(),
+                    vehicle.getColor(),
+                    vehicle.getMileage(),
+                    vehicle.getType(),
+                    vehicle.getPrice(),
+                    vehicle.getSold()
+            );
+        }
+    }
+
+    private static void processGetVehiclesByType() {
+        scanner.nextLine();
+        System.out.print("Enter vehicle type:");
+        String type = scanner.nextLine();
+        List<Vehicle> vehiclesByType = vehicleDAO.getVehiclesByType(type);
+        System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
+        for (Vehicle vehicle : vehiclesByType) {
+            System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
+                    vehicle.getVin(),
+                    vehicle.getYear(),
+                    vehicle.getMake(),
+                    vehicle.getModel(),
+                    vehicle.getColor(),
+                    vehicle.getMileage(),
+                    vehicle.getType(),
+                    vehicle.getPrice(),
+                    vehicle.getSold()
+            );
+        }
+    }
+
+    private static void processGetVehiclesByColor() {
+        scanner.nextLine();
+        System.out.print("Enter color:");
+        String color = scanner.nextLine();
+        List<Vehicle> vehiclesByColor = vehicleDAO.getVehiclesByColor(color);
+        System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
+        for (Vehicle vehicle : vehiclesByColor) {
+            System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
+                    vehicle.getVin(),
+                    vehicle.getYear(),
+                    vehicle.getMake(),
+                    vehicle.getModel(),
+                    vehicle.getColor(),
+                    vehicle.getMileage(),
+                    vehicle.getType(),
+                    vehicle.getPrice(),
+                    vehicle.getSold()
+            );
+        }
+    }
+
+    private static void processGetVehiclesByMileage() {
+        System.out.print("Enter min mileage:");
+        int min = scanner.nextInt();
+        System.out.print("Enter max mileage:");
+        int max = scanner.nextInt();
+        List<Vehicle> vehiclesByMileage = vehicleDAO.getVehiclesByMileage(min, max);
+        System.out.println("VIN|Year|Make|Model|Color|Mileage|Type|Price|SOLD");
+        for (Vehicle vehicle : vehiclesByMileage) {
             System.out.printf("%d|%d|%s|%s|%s|%d|%s|%.2f|%s\n",
                     vehicle.getVin(),
                     vehicle.getYear(),
